@@ -1,47 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Weather APP</title>
     <link rel="stylesheet" href="css/output.css">
     <link rel="icon" type="image/x-icon" href="assets/images/favicon-32x32.png">
 </head>
-
-<body>
-    <section class="px-[10%] py-8 w-full bg-[#02012b]">
-        <header class="flex justify-between">
-            <figure class="w-1/3">
-                <a href="#">
-                    <img src="assets/images/logo.svg" alt="logo">
-                </a>
-            </figure>
-            <div class="w-1/3 flex justify-end relative items-center *:text-[#fffcff]">
-                <figure class="absolute left-[8%]">
-                    <img src="assets/images/icon-units.svg" alt="gear">
-                </figure>
-                <select name="units" id="" class="p-2 w-[100px] bg-[#25253f] rounded-lg text-center">
-                    <option value="units" selected disabled class="p-3">units</option>
-                    <optgroup label="temperature">
-                        <option value="celcius">celcius (C&deg;)</option>
-                        <option value="fa">fahrenheit</option>
-                    </optgroup>
-                    <optgroup label="wind">
-                        <option value="">km/h</option>
-                        <option value="">mph</option>
-                    </optgroup>
-                    <optgroup label="percipitation">
-                        <option value="">millimeters (mm)</option>
-                        <option value="">inches (in)</option>
-                    </optgroup>
-                </select>
+<body class="min-h-screen bg-[radial-gradient(circle_at_top_left,#050816,#11224d,#0f7dc2)]">
+   <header class="w-full 2xl:container mx-auto border h-0">
+    <div class="w-full flex  justify-between px-3 pt-3">
+        <figure class="w-[130px]">
+            <img src="assets/images/logo.svg" alt="" class="w-full">
+        </figure>
+        <div class="relative">
+            <div class="justify-end flex">
+        <button class="capitalize text-white bg-gray-800 rounded-md px-2 py-1 text-[12px] flex items-center gap-2 " id="unitsBtn"><img  src="assets/images/icon-units.svg" alt="" class="w-[13px]">units <img src="assets/images/icon-dropdown.svg" alt="" class="w-[13px]">
+        </button>
+        </div>
+        
+        <div class=" mx-auto w-[200px] h-[350px]  bg-gray-800 mt-2 rounded-xl px-4 py-3 flex  gap-2.5 flex-col duration-700 absolute z-30 top-full right-0 hidden " id="para">
+            <h5 class="capitalize text-white">switch to imperial</h5>
+            <p class="text-gray-400 text-[15px] capitalize">tempereture</p>
+            <p class="capitalize text-white bg-gray-700 rounded-md flex px-2 py-1">celsius (&nbsp; <sup class="flex pt-3 text-[8px]">o</sup>C )
+            <img src="assets/images/icon-checkmark.svg" alt="" class="flex pl-10">
+            </p>
+            <p class="capitalize text-white flex py-1">fahrenheit (&nbsp; <sup class="flex pt-3 text-[8px]">o</sup>F )</p>
+            <hr class="text-gray-500">
+            <p class="text-gray-400 text-[15px] capitalize">wind speed</p>
+            <p class=" text-white bg-gray-700 rounded-md flex px-2 py-1">Km/h
+            <img src="assets/images/icon-checkmark.svg" alt="" class="flex pl-24">
+            </p>
+            <p class="text-white">mph</p>
+            <hr class="text-gray-500">
+            <p class=" text-white bg-gray-700 rounded-md flex px-2 py-1">Millimeters(mm)
+            <img src="assets/images/icon-checkmark.svg" alt="" class="flex pl-4 opa">
+            </p>
+        
             </div>
-        </header>
-        <main>
-            <h1>How's the sky looking today</h1>
-        </main>
-    </section>
+        </div>
+    </div>
+    </div>
+    <div>
+        <h1 class="w-full text-[50px] capitalize font-extrabold text-center px-3 text-white mt-2">how is the sky looking today?</h1>
+        <div  class=" *:text-white flex justify-center pt-5 gap-3 items-center">
+            <div class="relative flex items-center">
+        <img src="assets/images/icon-search.svg" alt="" class="absolute z-20 left-0 pl-2">
+        <input type="text" placeholder="search for a place.." class="border-2 p-2 relative placeholder:pl-10 rounded-xl outline-2 outline-white border-black bg-gray-800 lg:w-[700px] ">
+        </div>
+        <button class="bg-blue-600 text-[20px] px-5 py-2 rounded-xl outline-2 border-2 border-transparent outline-black -outline-offset-4">search</button>
+        </div>
+    </div>
+   </header>
 </body>
+<script>
+const btn = document.getElementById('unitsBtn');
+const para = document.getElementById('para');
 
+btn.addEventListener('click', () => {
+    para.classList.toggle('hidden');
+});
+</script>
 </html>
