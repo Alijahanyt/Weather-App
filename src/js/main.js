@@ -27,8 +27,16 @@ async function getCity() {
                 const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&hourly=temperature_2m&current=temperature_2m,relative_humidity_2m,is_day,precipitation,weather_code,wind_speed_10m`)
 
                 const weatherData = await response.json()
-                // console.log(weatherData)
                 console.log(weatherData)
+                console.log("current temp is " + weatherData.current.temperature_2m)
+                console.log("current time is " + weatherData.current.time)
+                console.log("now is " + weatherData.current.is_day)
+                console.log("current percipitation is " + weatherData.current.percipitation)
+                console.log("current relative himidity is " + weatherData.current.relative_humidity_2m)
+                console.log("current weather code is " + weatherData.current.relative_weather_code)
+                console.log("current wind speed is " + weatherData.current.wind_speed_10m)
+                
+
                 currentTemp.innerText = `temp is ${weatherData.current.temperature_2m}`
             }
             catch (error) {
