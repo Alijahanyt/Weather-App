@@ -8,7 +8,7 @@
 const currentTemp = document.getElementById('temp')
 
 async function getCity() {
-    let city = prompt("Enter city name:").trim()
+    // let city = prompt("Enter city name:").trim()
     try {
         const response = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=1&language=en&format=json`)
 

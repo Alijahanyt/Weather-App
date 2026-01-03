@@ -21,7 +21,7 @@
                 <figure class="absolute left-[8%]">
                     <img src="src/assets/images/icon-units.svg" alt="gear">
                 </figure>
-                <select name="units" id="" class="p-2 w-[100px] bg-[#25253f] rounded-lg text-center">
+                <select name="units" id="" class="p-1 w-[100px] bg-[#25253f] rounded-lg text-center">
                     <option value="units" selected disabled class="p-3">units</option>
                     <optgroup label="temperature">
                         <option value="celcius">celcius (C&deg;)</option>
@@ -39,7 +39,16 @@
             </div>
         </header>
         <main>
-            <h1>How's the sky looking today</h1>
+            <h1 class="w-full text-center text-white mt-6 text-3xl font-bold">How's the sky looking today?</h1>
+            <div id="searchForm" class="w-full gap-1 flex justify-between mt-6">
+                <div class="relative w-10/12">
+                    <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-300 pointer-events-none" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z"/>
+                    </svg>
+                    <input type="text" id="searchInput" placeholder="Search for a city..." aria-label="Search for a city" class="w-full pl-10 p-2 rounded-l-lg bg-[#25253f] text-white focus:outline-none">
+                </div>
+                <button type="submit" class="bg-[#4657d9] text-white p-2 rounded-r-lg hover:bg-[#4051d0]">Search</button>
+            </div>
         </main>
 
 
