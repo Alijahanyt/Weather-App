@@ -41,7 +41,7 @@
                     </svg>
                     <input type="text" id="searchInput" placeholder="Search for a place..." aria-label="Search for a place" class="w-full pl-10 p-3 rounded-lg bg-[#25253f] text-white focus:outline-none">
                 </div>
-                <button type="submit" class="w-full sm:w-auto mt-3 sm:mt-0 bg-[#4657d9] text-white px-6 py-3 rounded-lg hover:bg-[#4051d0]">Search</button>
+                <button type="submit" onclick="getCity()" class="w-full sm:w-auto mt-3 sm:mt-0 bg-[#4657d9] text-white px-6 py-3 rounded-lg hover:bg-[#4051d0]">Search</button>
             </div>
 
             <!-- Main content grid -->
@@ -53,12 +53,12 @@
                         <img src="src/assets/images/bg-today-large.svg" alt="background" class="absolute inset-0 w-full h-full object-cover opacity-20 pointer-events-none">
                         <div class="relative z-10 flex items-start justify-between h-full">
                             <div>
-                                <p class="text-lg font-semibold">Berlin, Germany</p>
-                                <p class="text-sm opacity-90 mt-1">Tuesday, Aug 5, 2025</p>
+                                <p id="cityName" class="text-lg font-semibold">Berlin, Germany</p>
+                                <p id="date" class="text-sm opacity-90 mt-1">Tuesday, Aug 5, 2025</p>
                             </div>
                             <div class="flex items-center">
                                 <img src="src/assets/images/icon-sunny.webp" alt="sun" class="w-14 h-14 mr-4 hidden sm:block">
-                                <div class="text-5xl font-bold">20&deg;</div>
+                                <div id="temp" class="text-5xl font-bold">20&deg;</div>
                             </div>
                         </div>
                     </div>
@@ -67,19 +67,19 @@
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                         <div class="bg-[#2b2940] rounded-lg p-4 text-white">
                             <p class="text-xs opacity-80">Feels Like</p>
-                            <p class="text-2xl font-semibold mt-2">18&deg;</p>
+                            <p id="feelsLike" class="text-2xl font-semibold mt-2">18&deg;</p>
                         </div>
                         <div class="bg-[#2b2940] rounded-lg p-4 text-white">
                             <p class="text-xs opacity-80">Humidity</p>
-                            <p class="text-2xl font-semibold mt-2">46%</p>
+                            <p id="humidity" class="text-2xl font-semibold mt-2">46%</p>
                         </div>
                         <div class="bg-[#2b2940] rounded-lg p-4 text-white">
                             <p class="text-xs opacity-80">Wind</p>
-                            <p class="text-2xl font-semibold mt-2">14 km/h</p>
+                            <p id="wind" class="text-2xl font-semibold mt-2">14 km/h</p>
                         </div>
                         <div class="bg-[#2b2940] rounded-lg p-4 text-white">
                             <p class="text-xs opacity-80">Precipitation</p>
-                            <p class="text-2xl font-semibold mt-2">0 mm</p>
+                            <p id="precipitation" class="text-2xl font-semibold mt-2">0 mm</p>
                         </div>
                     </div>
 

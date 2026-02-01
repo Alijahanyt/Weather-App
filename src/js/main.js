@@ -5,12 +5,30 @@
 
 
 
-const currentTemp = document.getElementById('temp')
+const cityName = document.getElementById('cityName')
+const date = document.getElementById('date')
+const temperature = document.getElementById('temp')
+const feelsLike = document.getElementById('feelsLike')
+const humidity = document.getElementById('humidity')
+const wind = document.getElementById('wind')
+const precipitation = document.getElementById('precipitation')
+
+date.innerText = new Date().toLocaleDateString('en-US', {
+    weekday: 'long', month: 'short', day: 'numeric', year: 'numeric'
+})
+
+
+let city = document.getElementById('searchInput')
+
+city.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+        getCity()
+    }
+})
 
 async function getCity() {
-    // let city = prompt("Enter city name:").trim()
     try {
-        const response = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=1&language=en&format=json`)
+        const response = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${city.value.trim()}&count=1&language=en&format=json`)
 
         if (!response.ok) {
             throw new Error("could not find city")
@@ -22,22 +40,21 @@ async function getCity() {
         async function getWeather() {
             let long = cityData.results[0].longitude
             let lat = cityData.results[0].latitude
+            let timezone = cityData.results[0].timezone
             // console.log(long, lat)
             try {
-                const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&hourly=temperature_2m&current=temperature_2m,relative_humidity_2m,is_day,precipitation,weather_code,wind_speed_10m`)
+                const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&timezone=${timezone}&daily=weather_code,temperature_2m_max,temperature_2m_min&hourly=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation_probability,precipitation,rain,weather_code,surface_pressure,wind_speed_10m&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,precipitation,rain,weather_code,pressure_msl,surface_pressure,wind_speed_10m`
+                )
 
                 const weatherData = await response.json()
                 console.log(weatherData)
-                console.log("current temp is " + weatherData.current.temperature_2m)
-                console.log("current time is " + weatherData.current.time)
-                console.log("now is " + weatherData.current.is_day)
-                console.log("current percipitation is " + weatherData.current.percipitation)
-                console.log("current relative himidity is " + weatherData.current.relative_humidity_2m)
-                console.log("current weather code is " + weatherData.current.relative_weather_code)
-                console.log("current wind speed is " + weatherData.current.wind_speed_10m)
-                
+                cityName.innerText = `${cityData.results[0].name}, ${cityData.results[0].country}`
+                temperature.innerText = `${weatherData.current.temperature_2m} °C`;
+                feelsLike.innerText = `${weatherData.current.apparent_temperature} °C`;
+                humidity.innerText = `${weatherData.current.relative_humidity_2m} %`;
+                wind.innerText = `${weatherData.current.wind_speed_10m} km/h`;
+                precipitation.innerText = `${weatherData.current.precipitation} mm`
 
-                currentTemp.innerText = `temp is ${weatherData.current.temperature_2m}`
             }
             catch (error) {
                 console.log(error)
@@ -50,4 +67,26 @@ async function getCity() {
     }
 }
 
-getCity()
+
+
+
+async function getDefaultCity() {
+    try {
+        const response = await fetch('https://ipapi.co/json/');
+        if (!response.ok) throw new Error('Failed to get IP location');
+
+        const data = await response.json();
+        const cityFromIP = data.city;
+        if (cityFromIP) {
+            // Fill the input with the city from IP
+            document.getElementById('searchInput').value = cityFromIP;
+            getCity(); // fetch weather for this city
+        }
+    } catch (error) {
+        console.error('IP location error:', error);
+        // fallback default
+        document.getElementById('searchInput').value = 'Berlin';
+        getCity();
+    }
+}
+getDefaultCity();
