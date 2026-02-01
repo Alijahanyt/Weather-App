@@ -19,13 +19,72 @@
                 <span class="text-white font-semibold">Weather Now</span>
             </a>
 
-            <!-- Controls: Units selector (styled as button). Replace with real control later if JS is added -->
-            <div>
-                <button type="button" class="flex items-center gap-2 bg-[#2b2940] text-white px-3 py-2 rounded-lg hover:bg-[#3a3650]">
+            <!-- Controls: Units selector dropdown -->
+            <div class="relative">
+                <button id="unitsBtn" type="button" class="flex items-center gap-2 bg-[#2b2940] text-white px-3 py-2 rounded-lg hover:bg-[#3a3650]">
                     <img src="src/assets/images/icon-units.svg" alt="" class="w-4 h-4">
                     <span class="text-sm">Units</span>
                     <img src="src/assets/images/icon-dropdown.svg" alt="" class="w-3 h-3 opacity-80">
                 </button>
+                
+                <!-- Dropdown menu -->
+                <div id="unitsMenu" class="hidden absolute right-0 mt-2 w-56 bg-[#2b2940] text-white rounded-lg shadow-lg py-3 z-50">
+                    <!-- Switch to Imperial Section -->
+                    <div class="px-4 py-2 border-b border-[#3a3650]">
+                        <p class="text-xs font-semibold opacity-70 mb-2">Switch to Imperial</p>
+                    </div>
+                    
+                    <!-- Temperature -->
+                    <div class="px-4 py-2">
+                        <p class="text-xs opacity-70 mb-2">Temperature</p>
+                        <div class="space-y-2">
+                            <label for="temp-celsius" class="flex items-center gap-2 cursor-pointer hover:bg-[#3a3650] px-2 py-1 rounded">
+                                <input type="radio" id="temp-celsius" name="temperature" value="celsius" checked class="w-4 h-4">
+                                <span class="text-sm flex-1">Celsius (°C)</span>
+                                <span class="text-blue-400 font-bold">✓</span>
+                            </label>
+                            <label for="temp-fahrenheit" class="flex items-center gap-2 cursor-pointer hover:bg-[#3a3650] px-2 py-1 rounded">
+                                <input type="radio" id="temp-fahrenheit" name="temperature" value="fahrenheit" class="w-4 h-4">
+                                <span class="text-sm flex-1">Fahrenheit (°F)</span>
+                                <span class="w-5"></span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Wind Speed -->
+                    <div class="px-4 py-2 border-t border-[#3a3650]">
+                        <p class="text-xs opacity-70 mb-2">Wind Speed</p>
+                        <div class="space-y-2">
+                            <label for="wind-kmh" class="flex items-center gap-2 cursor-pointer hover:bg-[#3a3650] px-2 py-1 rounded">
+                                <input type="radio" id="wind-kmh" name="windSpeed" value="kmh" checked class="w-4 h-4">
+                                <span class="text-sm flex-1">km/h</span>
+                                <span class="text-blue-400 font-bold">✓</span>
+                            </label>
+                            <label for="wind-mph" class="flex items-center gap-2 cursor-pointer hover:bg-[#3a3650] px-2 py-1 rounded">
+                                <input type="radio" id="wind-mph" name="windSpeed" value="mph" class="w-4 h-4">
+                                <span class="text-sm flex-1">mph</span>
+                                <span class="w-5"></span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Precipitation -->
+                    <div class="px-4 py-2 border-t border-[#3a3650]">
+                        <p class="text-xs opacity-70 mb-2">Precipitation</p>
+                        <div class="space-y-2">
+                            <label for="precip-mm" class="flex items-center gap-2 cursor-pointer hover:bg-[#3a3650] px-2 py-1 rounded">
+                                <input type="radio" id="precip-mm" name="precipitation" value="mm" checked class="w-4 h-4">
+                                <span class="text-sm flex-1">Millimeters (mm)</span>
+                                <span class="text-blue-400 font-bold">✓</span>
+                            </label>
+                            <label for="precip-inches" class="flex items-center gap-2 cursor-pointer hover:bg-[#3a3650] px-2 py-1 rounded">
+                                <input type="radio" id="precip-inches" name="precipitation" value="inches" class="w-4 h-4">
+                                <span class="text-sm flex-1">Inches (in)</span>
+                                <span class="w-5"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
             </div>
         </header>
         <main>
@@ -40,6 +99,11 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z"/>
                     </svg>
                     <input type="text" id="searchInput" placeholder="Search for a place..." aria-label="Search for a place" class="w-full pl-10 p-3 rounded-lg bg-[#25253f] text-white focus:outline-none">
+                    
+                    <!-- City suggestions dropdown -->
+                    <div id="suggestionsDropdown" class="hidden absolute top-full left-0 right-0 mt-2 bg-[#25253f] text-white rounded-lg shadow-lg max-h-64 overflow-y-auto z-50">
+                        <!-- Suggestions will be populated here by JavaScript -->
+                    </div>
                 </div>
                 <button type="submit" onclick="getCity()" class="w-full sm:w-auto mt-3 sm:mt-0 bg-[#4657d9] text-white px-6 py-3 rounded-lg hover:bg-[#4051d0]">Search</button>
             </div>
