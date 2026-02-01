@@ -194,6 +194,13 @@ async function getCity() {
                         el.innerText = `${Math.round(weatherData.hourly.temperature_2m[index])}°`;
                     }
                 });
+                
+                // Populate day dropdown now that we have data
+                populateDayDropdown();
+                
+                // Clear search input
+                city.value = '';
+                suggestionsDropdown.classList.add('hidden');
 
 
             }
@@ -247,6 +254,12 @@ async function getDefaultCity() {
     }
 }
 getDefaultCity();
+
+// Clear search input on initial load after a short delay
+setTimeout(() => {
+    city.value = '';
+    suggestionsDropdown.classList.add('hidden');
+}, 500);
 
 // ===== UNITS CONTROL FUNCTIONALITY =====
 let currentUnits = {
@@ -425,6 +438,7 @@ temperatureRadios.forEach(radio => {
         if (e.target.checked) {
             currentUnits.temperature = e.target.value;
             updateCheckmarks();
+            updateRadioButtonStyles();
             updateDisplayUnits();
         }
     });
@@ -435,6 +449,7 @@ windSpeedRadios.forEach(radio => {
         if (e.target.checked) {
             currentUnits.windSpeed = e.target.value;
             updateCheckmarks();
+            updateRadioButtonStyles();
             updateDisplayUnits();
         }
     });
@@ -445,6 +460,7 @@ precipitationRadios.forEach(radio => {
         if (e.target.checked) {
             currentUnits.precipitation = e.target.value;
             updateCheckmarks();
+            updateRadioButtonStyles();
             updateDisplayUnits();
         }
     });
@@ -452,3 +468,162 @@ precipitationRadios.forEach(radio => {
 
 // Initialize checkmarks
 updateCheckmarks();
+
+// ===== UPDATE CUSTOM RADIO BUTTON STYLING =====
+function updateRadioButtonStyles() {
+    // Update temperature radio buttons
+    temperatureRadios.forEach(radio => {
+        const label = radio.closest('label');
+        const circle = label.querySelector('.rounded-full');
+        const innerDot = circle.querySelector('div');
+        
+        if (radio.checked) {
+            circle.classList.remove('border-gray-500');
+            circle.classList.add('border-[#4657d9]');
+            innerDot.classList.remove('bg-transparent');
+            innerDot.classList.add('bg-[#4657d9]');
+        } else {
+            circle.classList.remove('border-[#4657d9]');
+            circle.classList.add('border-gray-500');
+            innerDot.classList.remove('bg-[#4657d9]');
+            innerDot.classList.add('bg-transparent');
+        }
+    });
+    
+    // Update wind speed radio buttons
+    windSpeedRadios.forEach(radio => {
+        const label = radio.closest('label');
+        const circle = label.querySelector('.rounded-full');
+        const innerDot = circle.querySelector('div');
+        
+        if (radio.checked) {
+            circle.classList.remove('border-gray-500');
+            circle.classList.add('border-[#4657d9]');
+            innerDot.classList.remove('bg-transparent');
+            innerDot.classList.add('bg-[#4657d9]');
+        } else {
+            circle.classList.remove('border-[#4657d9]');
+            circle.classList.add('border-gray-500');
+            innerDot.classList.remove('bg-[#4657d9]');
+            innerDot.classList.add('bg-transparent');
+        }
+    });
+    
+    // Update precipitation radio buttons
+    precipitationRadios.forEach(radio => {
+        const label = radio.closest('label');
+        const circle = label.querySelector('.rounded-full');
+        const innerDot = circle.querySelector('div');
+        
+        if (radio.checked) {
+            circle.classList.remove('border-gray-500');
+            circle.classList.add('border-[#4657d9]');
+            innerDot.classList.remove('bg-transparent');
+            innerDot.classList.add('bg-[#4657d9]');
+        } else {
+            circle.classList.remove('border-[#4657d9]');
+            circle.classList.add('border-gray-500');
+            innerDot.classList.remove('bg-[#4657d9]');
+            innerDot.classList.add('bg-transparent');
+        }
+    });
+}
+
+// ===== HOURLY FORECAST DAY SELECTION =====
+let currentDayIndex = 0; // 0 = today
+const hourlyDateBtn = document.getElementById('hourlyDateBtn');
+const dayDropdown = document.getElementById('dayDropdown');
+const hourlyDateDisplay = document.getElementById('hourlyDate');
+
+// Toggle day dropdown
+hourlyDateBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    dayDropdown.classList.toggle('hidden');
+});
+
+// Close dropdown when clicking outside
+document.addEventListener('click', (e) => {
+    if (!hourlyDateBtn.contains(e.target) && !dayDropdown.contains(e.target)) {
+        dayDropdown.classList.add('hidden');
+    }
+});
+
+// Populate day dropdown options
+function populateDayDropdown() {
+    dayDropdown.innerHTML = '';
+    
+    if (!lastWeatherData) return;
+    
+    const dailyTimes = lastWeatherData.daily.time; // Array of dates
+    
+    for (let i = 0; i < Math.min(7, dailyTimes.length); i++) {
+        const date = new Date(dailyTimes[i]);
+        const dayName = date.toLocaleDateString('en-US', { weekday: 'long' });
+        
+        const dayOption = document.createElement('button');
+        dayOption.type = 'button';
+        dayOption.className = `w-full text-left px-4 py-2 hover:bg-[#3a3650] transition-colors ${i === currentDayIndex ? 'bg-[#3a3650]' : ''}`;
+        dayOption.textContent = dayName;
+        
+        dayOption.addEventListener('click', () => {
+            currentDayIndex = i;
+            updateHourlyForecast(i);
+            hourlyDateDisplay.textContent = dayName;
+            dayDropdown.classList.add('hidden');
+            populateDayDropdown(); // Refresh to show new selection
+        });
+        
+        dayDropdown.appendChild(dayOption);
+    }
+}
+
+// Update hourly forecast for selected day
+function updateHourlyForecast(dayIndex) {
+    if (!lastWeatherData) return;
+    
+    const hourlyData = lastWeatherData.hourly;
+    const dailyTimes = lastWeatherData.daily.time;
+    
+    // Get start and end times for the selected day
+    const dayDate = new Date(dailyTimes[dayIndex]);
+    dayDate.setHours(0, 0, 0, 0);
+    
+    const nextDay = new Date(dayDate);
+    nextDay.setDate(nextDay.getDate() + 1);
+    
+    // Find hourly data indices for this day
+    const hourlyTimes = hourlyData.time.map(t => new Date(t));
+    const dayHours = [];
+    
+    // Find all hourly indices for this day
+    hourlyTimes.forEach((time, index) => {
+        if (time >= dayDate && time < nextDay) {
+            dayHours.push(index);
+        }
+    });
+    
+    // Update only the first 8 hourly display items with this day's data
+    hourlyTime.forEach((el, displayIndex) => {
+        if (displayIndex < dayHours.length && displayIndex < 8) {
+            const hourlyIndex = dayHours[displayIndex];
+            const hourTime = new Date(hourlyData.time[hourlyIndex]);
+            const hour = hourTime.getHours();
+            const ampm = hour >= 12 ? 'PM' : 'AM';
+            const displayHour = hour % 12 || 12;
+            
+            el.innerText = `${displayHour} ${ampm}`;
+            
+            // Update temperature
+            let temp = Math.round(hourlyData.temperature_2m[hourlyIndex]);
+            if (currentUnits.temperature === 'fahrenheit') {
+                temp = Math.round(celsiusToFahrenheit(temp));
+            }
+            const unit = currentUnits.temperature === 'fahrenheit' ? '°F' : '°C';
+            hourlyTemp[displayIndex].innerText = `${temp}${unit}`;
+            
+            // Update weather icon
+            const weatherCode = hourlyData.weather_code[hourlyIndex];
+            hourlyIcons[displayIndex].src = `src/assets/images/${weatherIcons[weatherCode] || 'icon-sunny.webp'}`;
+        }
+    });
+}
