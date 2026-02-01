@@ -57,7 +57,7 @@
                                 <p id="date" class="text-sm opacity-90 mt-1">Tuesday, Aug 5, 2025</p>
                             </div>
                             <div class="flex items-center">
-                                <img src="src/assets/images/icon-sunny.webp" alt="sun" class="w-14 h-14 mr-4 hidden sm:block">
+                                <img id="weatherIcon" src="src/assets/images/icon-sunny.webp" alt="sun" class="w-14 h-14 mr-4 hidden sm:block">
                                 <div id="temp" class="text-5xl font-bold">20&deg;</div>
                             </div>
                         </div>
@@ -86,41 +86,62 @@
                     <!-- Daily forecast -->
                     <div class="mt-6">
                         <h2 class="text-white font-semibold mb-3">Daily forecast</h2>
-                        <div class="grid grid-cols-3 sm:grid-cols-7 gap-4">
-                            <div class="bg-[#2b2940] rounded-lg p-4 text-white text-center">
-                                <p class="text-sm opacity-90">Tue</p>
+                        <div class="forecast-icons grid grid-cols-3 sm:grid-cols-7 gap-4">
+                            <div  class="bg-[#2b2940] rounded-lg p-4 text-white text-center">
+                                <p class="forecast-days text-sm opacity-90">Tue</p>
                                 <img src="src/assets/images/icon-rain.webp" alt="rain" class="w-10 h-10 mx-auto my-2">
-                                <p class="text-xs opacity-80">20&deg; <span class="ml-2 text-[13px] opacity-60">14&deg;</span></p>
+                                <div class="flex items-center justify-center">
+                                    <p class="maxTemp text-xs opacity-80">20&deg;</p>
+                                    <span class="ml-2 text-[13px] opacity-60">14&deg;</span>
+                                </div>
                             </div>
                             <div class="bg-[#2b2940] rounded-lg p-4 text-white text-center">
-                                <p class="text-sm opacity-90">Wed</p>
+                                <p class="forecast-days text-sm opacity-90">Wed</p>
                                 <img src="src/assets/images/icon-rain.webp" alt="rain" class="w-10 h-10 mx-auto my-2">
-                                <p class="text-xs opacity-80">21&deg; <span class="ml-2 text-[13px] opacity-60">15&deg;</span></p>
+                                <div class="flex items-center justify-center">
+                                    <p class="maxTemp text-xs opacity-80">21&deg;</p>
+                                    <span class="ml-2 text-[13px] opacity-60">15&deg;</span>
+                                </div>
                             </div>
                             <div class="bg-[#2b2940] rounded-lg p-4 text-white text-center">
-                                <p class="text-sm opacity-90">Thu</p>
+                                <p class="forecast-days text-sm opacity-90">Thu</p>
                                 <img src="src/assets/images/icon-sunny.webp" alt="sunny" class="w-10 h-10 mx-auto my-2">
-                                <p class="text-xs opacity-80">24&deg; <span class="ml-2 text-[13px] opacity-60">14&deg;</span></p>
+                                <div class="flex items-center justify-center">
+                                    <p class="maxTemp text-xs opacity-80">24&deg;</p>
+                                    <span class="ml-2 text-[13px] opacity-60">14&deg;</span>
+                                </div>
                             </div>
                             <div class="bg-[#2b2940] rounded-lg p-4 text-white text-center">
-                                <p class="text-sm opacity-90">Fri</p>
+                                <p class="forecast-days text-sm opacity-90">Fri</p>
                                 <img src="src/assets/images/icon-partly-cloudy.webp" alt="partly" class="w-10 h-10 mx-auto my-2">
-                                <p class="text-xs opacity-80">25&deg; <span class="ml-2 text-[13px] opacity-60">13&deg;</span></p>
+                                <div class="flex items-center justify-center">
+                                    <p class="maxTemp text-xs opacity-80">25&deg;</p>
+                                    <span class="ml-2 text-[13px] opacity-60">13&deg;</span>
+                                </div>
                             </div>
                             <div class="bg-[#2b2940] rounded-lg p-4 text-white text-center">
-                                <p class="text-sm opacity-90">Sat</p>
+                                <p class="forecast-days text-sm opacity-90">Sat</p>
                                 <img src="src/assets/images/icon-storm.webp" alt="storm" class="w-10 h-10 mx-auto my-2">
-                                <p class="text-xs opacity-80">21&deg; <span class="ml-2 text-[13px] opacity-60">15&deg;</span></p>
+                                <div class="flex items-center justify-center">
+                                    <p class="maxTemp text-xs opacity-80">21&deg;</p>
+                                    <span class="ml-2 text-[13px] opacity-60">15&deg;</span>
+                                </div>
                             </div>
                             <div class="bg-[#2b2940] rounded-lg p-4 text-white text-center">
-                                <p class="text-sm opacity-90">Sun</p>
+                                <p class="forecast-days text-sm opacity-90">Sun</p>
                                 <img src="src/assets/images/icon-overcast.webp" alt="overcast" class="w-10 h-10 mx-auto my-2">
-                                <p class="text-xs opacity-80">25&deg; <span class="ml-2 text-[13px] opacity-60">16&deg;</span></p>
+                                <div class="flex items-center justify-center">
+                                    <p class="maxTemp text-xs opacity-80">25&deg;</p>
+                                    <span class="ml-2 text-[13px] opacity-60">16&deg;</span>
+                                </div>
                             </div>
                             <div class="bg-[#2b2940] rounded-lg p-4 text-white text-center">
-                                <p class="text-sm opacity-90">Mon</p>
+                                <p class="forecast-days text-sm opacity-90">Mon</p>
                                 <img src="src/assets/images/icon-fog.webp" alt="fog" class="w-10 h-10 mx-auto my-2">
-                                <p class="text-xs opacity-80">24&deg; <span class="ml-2 text-[13px] opacity-60">15&deg;</span></p>
+                                <div class="flex items-center justify-center">
+                                    <p class="maxTemp text-xs opacity-80">24&deg;</p>
+                                    <span class="ml-2 text-[13px] opacity-60">15&deg;</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -131,7 +152,7 @@
                     <div class="flex items-center justify-between mb-4">
                         <h3 class="font-semibold">Hourly forecast</h3>
                         <button class="flex items-center gap-2 bg-[#3a3650] px-3 py-1 rounded-lg text-sm">
-                            <span>Tuesday</span>
+                            <span id="hourlyDate">Tuesday</span>
                             <img src="src/assets/images/icon-dropdown.svg" class="w-4 h-4" alt="dropdown">
                         </button>
                     </div>
@@ -139,66 +160,66 @@
                     <div class="space-y-3">
                         <div class="flex items-center justify-between bg-[#3b374b] p-3 rounded-lg">
                             <div class="flex items-center gap-3">
-                                <img src="src/assets/images/icon-overcast.webp" class="w-6 h-6" alt="cloud">
-                                <span>3 PM</span>
+                                <img src="src/assets/images/icon-overcast.webp" class="hourlyIcons w-6 h-6" alt="cloud">
+                                <span class="hourlyTime">3 PM</span>
                             </div>
-                            <span>20&deg;</span>
+                            <span class="hourlyTemp">20&deg;</span>
                         </div>
 
                         <div class="flex items-center justify-between bg-[#3b374b] p-3 rounded-lg">
                             <div class="flex items-center gap-3">
-                                <img src="src/assets/images/icon-partly-cloudy.webp" class="w-6 h-6" alt="cloud">
-                                <span>4 PM</span>
+                                <img src="src/assets/images/icon-partly-cloudy.webp" class="hourlyIcons w-6 h-6" alt="cloud">
+                                <span class="hourlyTime">4 PM</span>
                             </div>
-                            <span>20&deg;</span>
+                            <span class="hourlyTemp">20&deg;</span>
                         </div>
 
                         <div class="flex items-center justify-between bg-[#3b374b] p-3 rounded-lg">
                             <div class="flex items-center gap-3">
-                                <img src="src/assets/images/icon-sunny.webp" class="w-6 h-6" alt="sun">
-                                <span>5 PM</span>
+                                <img src="src/assets/images/icon-sunny.webp" class="hourlyIcons w-6 h-6" alt="sun">
+                                <span class="hourlyTime">5 PM</span>
                             </div>
-                            <span>20&deg;</span>
+                            <span class="hourlyTemp">20&deg;</span>
                         </div>
 
                         <div class="flex items-center justify-between bg-[#3b374b] p-3 rounded-lg">
                             <div class="flex items-center gap-3">
-                                <img src="src/assets/images/icon-overcast.webp" class="w-6 h-6" alt="cloud">
-                                <span>6 PM</span>
+                                <img src="src/assets/images/icon-overcast.webp" class="hourlyIcons w-6 h-6" alt="cloud">
+                                <span class="hourlyTime">6 PM</span>
                             </div>
-                            <span>19&deg;</span>
+                            <span class="hourlyTemp">19&deg;</span>
                         </div>
 
                         <div class="flex items-center justify-between bg-[#3b374b] p-3 rounded-lg">
                             <div class="flex items-center gap-3">
-                                <img src="src/assets/images/icon-rain.webp" class="w-6 h-6" alt="rain">
-                                <span>7 PM</span>
+                                <img src="src/assets/images/icon-rain.webp" class="hourlyIcons w-6 h-6" alt="rain">
+                                <span class="hourlyTime">7 PM</span>
                             </div>
-                            <span>18&deg;</span>
+                            <span class="hourlyTemp">18&deg;</span>
                         </div>
 
                         <div class="flex items-center justify-between bg-[#3b374b] p-3 rounded-lg">
                             <div class="flex items-center gap-3">
-                                <img src="src/assets/images/icon-fog.webp" class="w-6 h-6" alt="fog">
-                                <span>8 PM</span>
+                                <img src="src/assets/images/icon-fog.webp" class="hourlyIcons w-6 h-6" alt="fog">
+                                <span class="hourlyTime">8 PM</span>
                             </div>
-                            <span>18&deg;</span>
+                            <span class="hourlyTemp">18&deg;</span>
                         </div>
 
                         <div class="flex items-center justify-between bg-[#3b374b] p-3 rounded-lg">
                             <div class="flex items-center gap-3">
-                                <img src="src/assets/images/icon-overcast.webp" class="w-6 h-6" alt="cloud">
-                                <span>9 PM</span>
+                                <img src="src/assets/images/icon-overcast.webp" class="hourlyIcons w-6 h-6" alt="cloud">
+                                <span class="hourlyTime">9 PM</span>
                             </div>
-                            <span>17&deg;</span>
+                            <span class="hourlyTemp">17&deg;</span>
                         </div>
 
                         <div class="flex items-center justify-between bg-[#3b374b] p-3 rounded-lg">
                             <div class="flex items-center gap-3">
-                                <img src="src/assets/images/icon-overcast.webp" class="w-6 h-6" alt="cloud">
-                                <span>10 PM</span>
+                                <img src="src/assets/images/icon-overcast.webp" class="hourlyIcons w-6 h-6" alt="cloud">
+                                <span class="hourlyTime">10 PM</span>
                             </div>
-                            <span>17&deg;</span>
+                            <span class="hourlyTemp">17&deg;</span>
                         </div>
                     </div>
                 </aside>
@@ -207,7 +228,6 @@
 
 
 
-        <h1 id="temp"></h1>
     </section>
 </body>
 <script src="src/js/main.js"></script>

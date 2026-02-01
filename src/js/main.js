@@ -12,10 +12,39 @@ const feelsLike = document.getElementById('feelsLike')
 const humidity = document.getElementById('humidity')
 const wind = document.getElementById('wind')
 const precipitation = document.getElementById('precipitation')
+const weatherIcon = document.getElementById('weatherIcon')
+const forecast = document.querySelectorAll('.forecast-days')
+const forecastIcons = document.querySelectorAll('.forecast-icons img')
+const minTemp = document.querySelectorAll('.forecast-icons span')
+const maxTemp = document.querySelectorAll('.maxTemp')
+const hourlyDate = document.getElementById('hourlyDate')
+const hourlyIcons = document.querySelectorAll('.hourlyIcons')
+const hourlyTemp = document.querySelectorAll('.hourlyTemp')
+const hourlyTime = document.querySelectorAll('.hourlyTime')
+
+hourlyDate.innerText = new Date().toLocaleDateString('en-US', {
+    weekday: 'long'
+})
 
 date.innerText = new Date().toLocaleDateString('en-US', {
     weekday: 'long', month: 'short', day: 'numeric', year: 'numeric'
 })
+
+
+
+const weatherIcons = {
+    0: 'icon-sunny.webp',
+    1: 'icon-partly-cloudy.webp',
+    2: 'icon-partly-cloudy.webp',
+    3: 'icon-overcast.webp',
+    45: 'icon-fog.webp',
+    61: 'icon-rain.webp',
+    95: 'icon-storm.webp',
+    // add more codes if needed
+};
+
+
+
 
 
 let city = document.getElementById('searchInput')
@@ -54,6 +83,38 @@ async function getCity() {
                 humidity.innerText = `${weatherData.current.relative_humidity_2m} %`;
                 wind.innerText = `${weatherData.current.wind_speed_10m} km/h`;
                 precipitation.innerText = `${weatherData.current.precipitation} mm`
+                weatherIcon.src = `src/assets/images/${weatherIcons[weatherData.current.weather_code] || 'icon-sunny.webp'}`
+                forecastIcons.forEach((icon, index) => {
+                    icon.src = `src/assets/images/${weatherIcons[weatherData.daily.weather_code[index]] || 'icon-sunny.webp'}`
+                })
+                hourlyIcons.forEach((icon, index) => {
+                    icon.src = `src/assets/images/${weatherIcons[weatherData.hourly.weather_code[index]] || 'icon-sunny.webp'}`
+                })
+
+                const dailyMin = weatherData.daily.temperature_2m_min
+                const dailyMax = weatherData.daily.temperature_2m_max
+
+                minTemp.forEach((el, index) => {
+                    if (dailyMin[index] !== undefined) {
+                        el.innerText = `${Math.round(dailyMin[index])}°`
+                    }
+                })
+
+                maxTemp.forEach((el, index) => {
+                    if (dailyMax[index] !== undefined) {
+                        el.innerText = `${Math.round(dailyMax[index])}°`
+                    }
+                })
+                hourlyTime.forEach((el, index) => {
+                    const hour = new Date(weatherData.hourly.time[index]).getHours();
+                    el.innerText = `${hour}:00`;
+                })
+                hourlyTemp.forEach((el, index) => {
+                    if (weatherData.hourly.temperature_2m[index] !== undefined) {
+                        el.innerText = `${Math.round(weatherData.hourly.temperature_2m[index])}°`;
+                    }
+                });
+
 
             }
             catch (error) {
@@ -65,6 +126,22 @@ async function getCity() {
     catch (error) {
         console.log(error)
     }
+    function updateForecastWeekdays() {
+        const forecast = document.querySelectorAll('.forecast-days');
+
+        forecast.forEach((el, index) => {
+            const date = new Date();
+            date.setDate(date.getDate() + index);
+
+            const weekday = date.toLocaleDateString('en-US', {
+                weekday: 'short'
+            });
+
+            el.innerText = weekday;
+        });
+    }
+    updateForecastWeekdays();
+
 }
 
 
@@ -72,7 +149,7 @@ async function getCity() {
 
 async function getDefaultCity() {
     try {
-        const response = await fetch('https://ipapi.co/json/');
+        const response = await fetch('https://ipwho.is/');
         if (!response.ok) throw new Error('Failed to get IP location');
 
         const data = await response.json();
