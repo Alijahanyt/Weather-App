@@ -82,7 +82,6 @@ Built with **HTML, JavaScript, and Tailwind CSS**, it focuses on **clean UI, acc
 **Screenshot Captions:**
 - 🌅 Daily forecast card
 - 🌤️ Hourly forecast panel
-- 📊 Responsive layout in action
 - 💻 Code & structure overview
 
 ---
@@ -105,8 +104,6 @@ Built with **HTML, JavaScript, and Tailwind CSS**, it focuses on **clean UI, acc
 ---
 
 ## Author 👨‍💻
-[![Ali Jahanygiri]](https://github.com/Alijahanyt)
-
 ---
 
 ✨ *Thank you for checking out Weather Now! Fork, star, and share your feedback!* 🌤️
