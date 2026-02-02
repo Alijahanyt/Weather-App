@@ -94,16 +94,15 @@ The app is built with **HTML, JavaScript, and Tailwind CSS**, with a focus on cl
 
 ## 🌐 Socials
 [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/alijahan.io) 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ali-jahanyt/) 
-[![Email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:alijahanyt@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ali-jahanyt/)
 [![GitHub](https://img.shields.io/badge/GitHub-%2312100E.svg?logo=github&logoColor=white)](https://github.com/Alijahanyt)
 
 ---
 
 ## Author
-[![Ali Jahanyt](https://avatars.githubusercontent.com/u/YOUR_GITHUB_ID?v=4)](https://github.com/Alijahanyt)
+[![Ali Jahangiri](https://avatars.githubusercontent.com/u/Alijahanyt?v=4)](https://github.com/Alijahanyt)
 
-Ali Jahanyt – [Portfolio](https://alijahan.io) – alijahanyt@gmail.com
+Ali Jahangiri
 
 ---
 
