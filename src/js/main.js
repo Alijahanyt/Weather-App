@@ -1,7 +1,4 @@
-// let city = document.getElementById('city');
-// org city decoding api https://geocoding-api.open-meteo.com/v1/search?name=Tehran&count=1&language=en&format=json
-// api `https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=1&language=en&format=json`
-// org long and lat api https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m&current=temperature_2m,relative_humidity_2m,is_day,precipitation,weather_code,wind_speed_10m
+
 
 
 
@@ -56,25 +53,25 @@ let suggestionsTimeout;
 // Listen for input changes to show city suggestions
 city.addEventListener('input', async (e) => {
     const input = e.target.value.trim();
-    
+
     // Clear previous timeout
     clearTimeout(suggestionsTimeout);
-    
+
     // Hide suggestions if input is empty
     if (input.length < 2) {
         suggestionsDropdown.classList.add('hidden');
         return;
     }
-    
+
     // Debounce the API call
     suggestionsTimeout = setTimeout(async () => {
         try {
             const response = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${input}&count=10&language=en&format=json`);
-            
+
             if (!response.ok) {
                 throw new Error("Could not fetch suggestions");
             }
-            
+
             const data = await response.json();
             displaySuggestions(data.results || []);
         } catch (error) {
@@ -87,34 +84,34 @@ city.addEventListener('input', async (e) => {
 // Display city suggestions
 function displaySuggestions(results) {
     suggestionsDropdown.innerHTML = '';
-    
+
     if (results.length === 0) {
         suggestionsDropdown.classList.add('hidden');
         return;
     }
-    
+
     results.forEach(result => {
         const suggestionItem = document.createElement('div');
         suggestionItem.className = 'px-4 py-3 hover:bg-[#3a3650] cursor-pointer border-b border-[#3a3650] last:border-b-0';
-        
+
         const cityName = result.name;
         const country = result.country ? `, ${result.country}` : '';
         const state = result.admin1 ? ` (${result.admin1})` : '';
-        
+
         suggestionItem.innerHTML = `
             <p class="text-sm text-white">${cityName}${state}</p>
             <p class="text-xs text-gray-400">${country}</p>
         `;
-        
+
         suggestionItem.addEventListener('click', () => {
             city.value = `${cityName}${country}`;
             suggestionsDropdown.classList.add('hidden');
             getCity();
         });
-        
+
         suggestionsDropdown.appendChild(suggestionItem);
     });
-    
+
     suggestionsDropdown.classList.remove('hidden');
 }
 
@@ -194,10 +191,10 @@ async function getCity() {
                         el.innerText = `${Math.round(weatherData.hourly.temperature_2m[index])}°`;
                     }
                 });
-                
+
                 // Populate day dropdown now that we have data
                 populateDayDropdown();
-                
+
                 // Clear search input
                 city.value = '';
                 suggestionsDropdown.classList.add('hidden');
@@ -476,7 +473,7 @@ function updateRadioButtonStyles() {
         const label = radio.closest('label');
         const circle = label.querySelector('.rounded-full');
         const innerDot = circle.querySelector('div');
-        
+
         if (radio.checked) {
             circle.classList.remove('border-gray-500');
             circle.classList.add('border-[#4657d9]');
@@ -489,13 +486,13 @@ function updateRadioButtonStyles() {
             innerDot.classList.add('bg-transparent');
         }
     });
-    
+
     // Update wind speed radio buttons
     windSpeedRadios.forEach(radio => {
         const label = radio.closest('label');
         const circle = label.querySelector('.rounded-full');
         const innerDot = circle.querySelector('div');
-        
+
         if (radio.checked) {
             circle.classList.remove('border-gray-500');
             circle.classList.add('border-[#4657d9]');
@@ -508,13 +505,13 @@ function updateRadioButtonStyles() {
             innerDot.classList.add('bg-transparent');
         }
     });
-    
+
     // Update precipitation radio buttons
     precipitationRadios.forEach(radio => {
         const label = radio.closest('label');
         const circle = label.querySelector('.rounded-full');
         const innerDot = circle.querySelector('div');
-        
+
         if (radio.checked) {
             circle.classList.remove('border-gray-500');
             circle.classList.add('border-[#4657d9]');
@@ -551,20 +548,20 @@ document.addEventListener('click', (e) => {
 // Populate day dropdown options
 function populateDayDropdown() {
     dayDropdown.innerHTML = '';
-    
+
     if (!lastWeatherData) return;
-    
+
     const dailyTimes = lastWeatherData.daily.time; // Array of dates
-    
+
     for (let i = 0; i < Math.min(7, dailyTimes.length); i++) {
         const date = new Date(dailyTimes[i]);
         const dayName = date.toLocaleDateString('en-US', { weekday: 'long' });
-        
+
         const dayOption = document.createElement('button');
         dayOption.type = 'button';
         dayOption.className = `w-full text-left px-4 py-2 hover:bg-[#3a3650] transition-colors ${i === currentDayIndex ? 'bg-[#3a3650]' : ''}`;
         dayOption.textContent = dayName;
-        
+
         dayOption.addEventListener('click', () => {
             currentDayIndex = i;
             updateHourlyForecast(i);
@@ -572,7 +569,7 @@ function populateDayDropdown() {
             dayDropdown.classList.add('hidden');
             populateDayDropdown(); // Refresh to show new selection
         });
-        
+
         dayDropdown.appendChild(dayOption);
     }
 }
@@ -580,28 +577,28 @@ function populateDayDropdown() {
 // Update hourly forecast for selected day
 function updateHourlyForecast(dayIndex) {
     if (!lastWeatherData) return;
-    
+
     const hourlyData = lastWeatherData.hourly;
     const dailyTimes = lastWeatherData.daily.time;
-    
+
     // Get start and end times for the selected day
     const dayDate = new Date(dailyTimes[dayIndex]);
     dayDate.setHours(0, 0, 0, 0);
-    
+
     const nextDay = new Date(dayDate);
     nextDay.setDate(nextDay.getDate() + 1);
-    
+
     // Find hourly data indices for this day
     const hourlyTimes = hourlyData.time.map(t => new Date(t));
     const dayHours = [];
-    
+
     // Find all hourly indices for this day
     hourlyTimes.forEach((time, index) => {
         if (time >= dayDate && time < nextDay) {
             dayHours.push(index);
         }
     });
-    
+
     // Update only the first 8 hourly display items with this day's data
     hourlyTime.forEach((el, displayIndex) => {
         if (displayIndex < dayHours.length && displayIndex < 8) {
@@ -610,9 +607,9 @@ function updateHourlyForecast(dayIndex) {
             const hour = hourTime.getHours();
             const ampm = hour >= 12 ? 'PM' : 'AM';
             const displayHour = hour % 12 || 12;
-            
+
             el.innerText = `${displayHour} ${ampm}`;
-            
+
             // Update temperature
             let temp = Math.round(hourlyData.temperature_2m[hourlyIndex]);
             if (currentUnits.temperature === 'fahrenheit') {
@@ -620,7 +617,7 @@ function updateHourlyForecast(dayIndex) {
             }
             const unit = currentUnits.temperature === 'fahrenheit' ? '°F' : '°C';
             hourlyTemp[displayIndex].innerText = `${temp}${unit}`;
-            
+
             // Update weather icon
             const weatherCode = hourlyData.weather_code[hourlyIndex];
             hourlyIcons[displayIndex].src = `src/assets/images/${weatherIcons[weatherCode] || 'icon-sunny.webp'}`;
