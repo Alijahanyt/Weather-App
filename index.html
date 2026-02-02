@@ -21,34 +21,42 @@
 
             <!-- Controls: Units selector dropdown -->
             <div class="relative">
-                <button id="unitsBtn" type="button" class="flex items-center gap-2 bg-[#1a1a2e] text-white px-4 py-2 rounded-lg hover:bg-[#252541] active:bg-[#16162a] transition-colors border border-[#3a3a52]">
+                <button id="unitsBtn" type="button"
+                    class="flex items-center gap-2 bg-[#1a1a2e] text-white px-4 py-2 rounded-lg hover:bg-[#252541] active:bg-[#16162a] transition-colors border border-[#3a3a52]">
                     <img src="src/assets/images/icon-units.svg" alt="" class="w-4 h-4">
                     <span class="text-sm">Units</span>
                     <img src="src/assets/images/icon-dropdown.svg" alt="" class="w-3 h-3 opacity-80">
                 </button>
-                
+
                 <!-- Dropdown menu -->
-                <div id="unitsMenu" class="hidden absolute right-0 mt-2 w-56 bg-[#1a1a2e] text-white rounded-lg shadow-xl py-3 z-50 border border-[#3a3a52]">
+                <div id="unitsMenu"
+                    class="hidden absolute right-0 mt-2 w-56 bg-[#1a1a2e] text-white rounded-lg shadow-xl py-3 z-50 border border-[#3a3a52]">
                     <!-- Switch to Imperial Section -->
                     <div class="px-4 py-2 border-b border-[#3a3a52]">
                         <p class="text-xs font-semibold opacity-70 mb-2">Switch to Imperial</p>
                     </div>
-                    
+
                     <!-- Temperature -->
                     <div class="px-4 py-2">
                         <p class="text-xs opacity-70 mb-2">Temperature</p>
                         <div class="space-y-2">
-                            <label for="temp-celsius" class="flex items-center gap-3 cursor-pointer hover:bg-[#252541] px-2 py-1 rounded transition-colors group">
-                                <div class="w-4 h-4 rounded-full border-2 border-[#4657d9] bg-[#16162a] flex items-center justify-center group-hover:border-[#5568e8]">
-                                    <input type="radio" id="temp-celsius" name="temperature" value="celsius" checked class="sr-only peer">
+                            <label for="temp-celsius"
+                                class="flex items-center gap-3 cursor-pointer hover:bg-[#252541] px-2 py-1 rounded transition-colors group">
+                                <div
+                                    class="w-4 h-4 rounded-full border-2 border-[#4657d9] bg-[#16162a] flex items-center justify-center group-hover:border-[#5568e8]">
+                                    <input type="radio" id="temp-celsius" name="temperature" value="celsius" checked
+                                        class="sr-only peer">
                                     <div class="w-2 h-2 bg-[#4657d9] rounded-full opacity-100"></div>
                                 </div>
                                 <span class="text-sm flex-1">Celsius (°C)</span>
                                 <span class="text-[#4657d9] font-bold">✓</span>
                             </label>
-                            <label for="temp-fahrenheit" class="flex items-center gap-3 cursor-pointer hover:bg-[#252541] px-2 py-1 rounded transition-colors group">
-                                <div class="w-4 h-4 rounded-full border-2 border-gray-500 bg-[#16162a] flex items-center justify-center group-hover:border-gray-400">
-                                    <input type="radio" id="temp-fahrenheit" name="temperature" value="fahrenheit" class="sr-only peer">
+                            <label for="temp-fahrenheit"
+                                class="flex items-center gap-3 cursor-pointer hover:bg-[#252541] px-2 py-1 rounded transition-colors group">
+                                <div
+                                    class="w-4 h-4 rounded-full border-2 border-gray-500 bg-[#16162a] flex items-center justify-center group-hover:border-gray-400">
+                                    <input type="radio" id="temp-fahrenheit" name="temperature" value="fahrenheit"
+                                        class="sr-only peer">
                                     <div class="w-2 h-2 bg-transparent rounded-full"></div>
                                 </div>
                                 <span class="text-sm flex-1">Fahrenheit (°F)</span>
@@ -56,21 +64,26 @@
                             </label>
                         </div>
                     </div>
-                    
+
                     <!-- Wind Speed -->
                     <div class="px-4 py-2 border-t border-[#3a3a52]">
                         <p class="text-xs opacity-70 mb-2">Wind Speed</p>
                         <div class="space-y-2">
-                            <label for="wind-kmh" class="flex items-center gap-3 cursor-pointer hover:bg-[#252541] px-2 py-1 rounded transition-colors group">
-                                <div class="w-4 h-4 rounded-full border-2 border-[#4657d9] bg-[#16162a] flex items-center justify-center group-hover:border-[#5568e8]">
-                                    <input type="radio" id="wind-kmh" name="windSpeed" value="kmh" checked class="sr-only peer">
+                            <label for="wind-kmh"
+                                class="flex items-center gap-3 cursor-pointer hover:bg-[#252541] px-2 py-1 rounded transition-colors group">
+                                <div
+                                    class="w-4 h-4 rounded-full border-2 border-[#4657d9] bg-[#16162a] flex items-center justify-center group-hover:border-[#5568e8]">
+                                    <input type="radio" id="wind-kmh" name="windSpeed" value="kmh" checked
+                                        class="sr-only peer">
                                     <div class="w-2 h-2 bg-[#4657d9] rounded-full opacity-100"></div>
                                 </div>
                                 <span class="text-sm flex-1">km/h</span>
                                 <span class="text-[#4657d9] font-bold">✓</span>
                             </label>
-                            <label for="wind-mph" class="flex items-center gap-3 cursor-pointer hover:bg-[#252541] px-2 py-1 rounded transition-colors group">
-                                <div class="w-4 h-4 rounded-full border-2 border-gray-500 bg-[#16162a] flex items-center justify-center group-hover:border-gray-400">
+                            <label for="wind-mph"
+                                class="flex items-center gap-3 cursor-pointer hover:bg-[#252541] px-2 py-1 rounded transition-colors group">
+                                <div
+                                    class="w-4 h-4 rounded-full border-2 border-gray-500 bg-[#16162a] flex items-center justify-center group-hover:border-gray-400">
                                     <input type="radio" id="wind-mph" name="windSpeed" value="mph" class="sr-only peer">
                                     <div class="w-2 h-2 bg-transparent rounded-full"></div>
                                 </div>
@@ -79,22 +92,28 @@
                             </label>
                         </div>
                     </div>
-                    
+
                     <!-- Precipitation -->
                     <div class="px-4 py-2 border-t border-[#3a3a52]">
                         <p class="text-xs opacity-70 mb-2">Precipitation</p>
                         <div class="space-y-2">
-                            <label for="precip-mm" class="flex items-center gap-3 cursor-pointer hover:bg-[#252541] px-2 py-1 rounded transition-colors group">
-                                <div class="w-4 h-4 rounded-full border-2 border-[#4657d9] bg-[#16162a] flex items-center justify-center group-hover:border-[#5568e8]">
-                                    <input type="radio" id="precip-mm" name="precipitation" value="mm" checked class="sr-only peer">
+                            <label for="precip-mm"
+                                class="flex items-center gap-3 cursor-pointer hover:bg-[#252541] px-2 py-1 rounded transition-colors group">
+                                <div
+                                    class="w-4 h-4 rounded-full border-2 border-[#4657d9] bg-[#16162a] flex items-center justify-center group-hover:border-[#5568e8]">
+                                    <input type="radio" id="precip-mm" name="precipitation" value="mm" checked
+                                        class="sr-only peer">
                                     <div class="w-2 h-2 bg-[#4657d9] rounded-full opacity-100"></div>
                                 </div>
                                 <span class="text-sm flex-1">Millimeters (mm)</span>
                                 <span class="text-[#4657d9] font-bold">✓</span>
                             </label>
-                            <label for="precip-inches" class="flex items-center gap-3 cursor-pointer hover:bg-[#252541] px-2 py-1 rounded transition-colors group">
-                                <div class="w-4 h-4 rounded-full border-2 border-gray-500 bg-[#16162a] flex items-center justify-center group-hover:border-gray-400">
-                                    <input type="radio" id="precip-inches" name="precipitation" value="inches" class="sr-only peer">
+                            <label for="precip-inches"
+                                class="flex items-center gap-3 cursor-pointer hover:bg-[#252541] px-2 py-1 rounded transition-colors group">
+                                <div
+                                    class="w-4 h-4 rounded-full border-2 border-gray-500 bg-[#16162a] flex items-center justify-center group-hover:border-gray-400">
+                                    <input type="radio" id="precip-inches" name="precipitation" value="inches"
+                                        class="sr-only peer">
                                     <div class="w-2 h-2 bg-transparent rounded-full"></div>
                                 </div>
                                 <span class="text-sm flex-1">Inches (in)</span>
@@ -106,24 +125,32 @@
             </div>
         </header>
         <main>
-            <h1 class="w-full text-center text-white mt-6 text-3xl md:text-4xl font-bold">How's the sky looking today?</h1>
+            <h1 class="w-full text-center text-white mt-6 text-3xl md:text-4xl font-bold">How's the sky looking today?
+            </h1>
 
             <!-- Search form: accessible label for screen readers + visible input with icon on the left -->
             <div id="searchForm" class="w-full gap-4 flex flex-col sm:flex-row items-center justify-between mt-6">
                 <div class="relative w-full sm:w-10/12">
                     <!-- Visually hidden label (improves accessibility for screen readers) -->
                     <label for="searchInput" class="sr-only">Search for a place</label>
-                    <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-300 pointer-events-none" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z"/>
+                    <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-300 pointer-events-none"
+                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                        aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z" />
                     </svg>
-                    <input type="text" id="searchInput" placeholder="Search for a place..." aria-label="Search for a place" class="w-full pl-10 p-3 rounded-lg bg-[#1a1a2e] text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#4657d9] focus:bg-[#252541] transition-all">
-                    
+                    <input type="text" id="searchInput" placeholder="Search for a place..."
+                        aria-label="Search for a place"
+                        class="w-full pl-10 p-3 rounded-lg bg-[#1a1a2e] text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#4657d9] focus:bg-[#252541] transition-all">
+
                     <!-- City suggestions dropdown -->
-                    <div id="suggestionsDropdown" class="hidden absolute top-full left-0 right-0 mt-2 bg-[#1a1a2e] text-white rounded-lg shadow-xl max-h-64 overflow-y-auto z-50 border border-[#3a3a52]">
+                    <div id="suggestionsDropdown"
+                        class="hidden absolute top-full left-0 right-0 mt-2 bg-[#1a1a2e] text-white rounded-lg shadow-xl max-h-64 overflow-y-auto z-50 border border-[#3a3a52]">
                         <!-- Suggestions will be populated here by JavaScript -->
                     </div>
                 </div>
-                <button type="submit" onclick="getCity()" class="w-full sm:w-auto mt-3 sm:mt-0 bg-[#4657d9] text-white px-6 py-3 rounded-lg hover:bg-[#5568e8] active:bg-[#3a46b8] transition-colors font-medium">Search</button>
+                <button type="submit" onclick="getCity()"
+                    class="w-full sm:w-auto mt-3 sm:mt-0 bg-[#4657d9] text-white px-6 py-3 rounded-lg hover:bg-[#5568e8] active:bg-[#3a46b8] transition-colors font-medium">Search</button>
             </div>
 
             <!-- Main content grid -->
@@ -131,15 +158,18 @@
                 <!-- Left column (main) -->
                 <div class="lg:col-span-2 space-y-6">
                     <!-- Today card -->
-                    <div class="relative rounded-2xl overflow-hidden p-6 h-52 md:h-64 bg-gradient-to-br from-[#4b4fe8] to-[#6b46f8] text-white">
-                        <img src="src/assets/images/bg-today-large.svg" alt="background" class="absolute inset-0 w-full h-full object-cover opacity-20 pointer-events-none">
+                    <div
+                        class="relative rounded-2xl overflow-hidden p-6 h-52 md:h-64 bg-gradient-to-br from-[#4b4fe8] to-[#6b46f8] text-white">
+                        <img src="src/assets/images/bg-today-large.svg" alt="background"
+                            class="absolute inset-0 w-full h-full object-cover opacity-20 pointer-events-none">
                         <div class="relative z-10 flex items-start justify-between h-full">
                             <div>
                                 <p id="cityName" class="text-lg font-semibold">Berlin, Germany</p>
                                 <p id="date" class="text-sm opacity-90 mt-1">Tuesday, Aug 5, 2025</p>
                             </div>
                             <div class="flex items-center">
-                                <img id="weatherIcon" src="src/assets/images/icon-sunny.webp" alt="sun" class="w-14 h-14 mr-4 hidden sm:block">
+                                <img id="weatherIcon" src="src/assets/images/icon-sunny.webp" alt="sun"
+                                    class="w-14 h-14 mr-4 hidden sm:block">
                                 <div id="temp" class="text-5xl font-bold">20&deg;</div>
                             </div>
                         </div>
@@ -147,19 +177,23 @@
 
                     <!-- Info tiles -->
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        <div class="bg-[#1a1a2e] rounded-lg p-4 text-white border border-[#3a3a52] hover:border-[#4657d9] transition-colors">
+                        <div
+                            class="bg-[#1a1a2e] rounded-lg p-4 text-white border border-[#3a3a52] hover:border-[#4657d9] transition-colors">
                             <p class="text-xs opacity-80">Feels Like</p>
                             <p id="feelsLike" class="text-2xl font-semibold mt-2">18&deg;</p>
                         </div>
-                        <div class="bg-[#1a1a2e] rounded-lg p-4 text-white border border-[#3a3a52] hover:border-[#4657d9] transition-colors">
+                        <div
+                            class="bg-[#1a1a2e] rounded-lg p-4 text-white border border-[#3a3a52] hover:border-[#4657d9] transition-colors">
                             <p class="text-xs opacity-80">Humidity</p>
                             <p id="humidity" class="text-2xl font-semibold mt-2">46%</p>
                         </div>
-                        <div class="bg-[#1a1a2e] rounded-lg p-4 text-white border border-[#3a3a52] hover:border-[#4657d9] transition-colors">
+                        <div
+                            class="bg-[#1a1a2e] rounded-lg p-4 text-white border border-[#3a3a52] hover:border-[#4657d9] transition-colors">
                             <p class="text-xs opacity-80">Wind</p>
                             <p id="wind" class="text-2xl font-semibold mt-2">14 km/h</p>
                         </div>
-                        <div class="bg-[#1a1a2e] rounded-lg p-4 text-white border border-[#3a3a52] hover:border-[#4657d9] transition-colors">
+                        <div
+                            class="bg-[#1a1a2e] rounded-lg p-4 text-white border border-[#3a3a52] hover:border-[#4657d9] transition-colors">
                             <p class="text-xs opacity-80">Precipitation</p>
                             <p id="precipitation" class="text-2xl font-semibold mt-2">0 mm</p>
                         </div>
@@ -169,7 +203,8 @@
                     <div class="mt-6">
                         <h2 class="text-white font-semibold mb-3">Daily forecast</h2>
                         <div class="forecast-icons grid grid-cols-3 sm:grid-cols-7 gap-4">
-                            <div class="bg-[#1a1a2e] rounded-lg p-4 text-white text-center border border-[#3a3a52] hover:border-[#4657d9] transition-colors">
+                            <div
+                                class="bg-[#1a1a2e] rounded-lg p-4 text-white text-center border border-[#3a3a52] hover:border-[#4657d9] transition-colors">
                                 <p class="forecast-days text-sm opacity-90">Tue</p>
                                 <img src="src/assets/images/icon-rain.webp" alt="rain" class="w-10 h-10 mx-auto my-2">
                                 <div class="flex items-center justify-center">
@@ -177,7 +212,8 @@
                                     <span class="ml-2 text-[13px] opacity-60">14&deg;</span>
                                 </div>
                             </div>
-                            <div class="bg-[#1a1a2e] rounded-lg p-4 text-white text-center border border-[#3a3a52] hover:border-[#4657d9] transition-colors">
+                            <div
+                                class="bg-[#1a1a2e] rounded-lg p-4 text-white text-center border border-[#3a3a52] hover:border-[#4657d9] transition-colors">
                                 <p class="forecast-days text-sm opacity-90">Wed</p>
                                 <img src="src/assets/images/icon-rain.webp" alt="rain" class="w-10 h-10 mx-auto my-2">
                                 <div class="flex items-center justify-center">
@@ -185,7 +221,8 @@
                                     <span class="ml-2 text-[13px] opacity-60">15&deg;</span>
                                 </div>
                             </div>
-                            <div class="bg-[#1a1a2e] rounded-lg p-4 text-white text-center border border-[#3a3a52] hover:border-[#4657d9] transition-colors">
+                            <div
+                                class="bg-[#1a1a2e] rounded-lg p-4 text-white text-center border border-[#3a3a52] hover:border-[#4657d9] transition-colors">
                                 <p class="forecast-days text-sm opacity-90">Thu</p>
                                 <img src="src/assets/images/icon-sunny.webp" alt="sunny" class="w-10 h-10 mx-auto my-2">
                                 <div class="flex items-center justify-center">
@@ -193,15 +230,18 @@
                                     <span class="ml-2 text-[13px] opacity-60">14&deg;</span>
                                 </div>
                             </div>
-                            <div class="bg-[#1a1a2e] rounded-lg p-4 text-white text-center border border-[#3a3a52] hover:border-[#4657d9] transition-colors">
+                            <div
+                                class="bg-[#1a1a2e] rounded-lg p-4 text-white text-center border border-[#3a3a52] hover:border-[#4657d9] transition-colors">
                                 <p class="forecast-days text-sm opacity-90">Fri</p>
-                                <img src="src/assets/images/icon-partly-cloudy.webp" alt="partly" class="w-10 h-10 mx-auto my-2">
+                                <img src="src/assets/images/icon-partly-cloudy.webp" alt="partly"
+                                    class="w-10 h-10 mx-auto my-2">
                                 <div class="flex items-center justify-center">
                                     <p class="maxTemp text-xs opacity-80">25&deg;</p>
                                     <span class="ml-2 text-[13px] opacity-60">13&deg;</span>
                                 </div>
                             </div>
-                            <div class="bg-[#1a1a2e] rounded-lg p-4 text-white text-center border border-[#3a3a52] hover:border-[#4657d9] transition-colors">
+                            <div
+                                class="bg-[#1a1a2e] rounded-lg p-4 text-white text-center border border-[#3a3a52] hover:border-[#4657d9] transition-colors">
                                 <p class="forecast-days text-sm opacity-90">Sat</p>
                                 <img src="src/assets/images/icon-storm.webp" alt="storm" class="w-10 h-10 mx-auto my-2">
                                 <div class="flex items-center justify-center">
@@ -209,15 +249,18 @@
                                     <span class="ml-2 text-[13px] opacity-60">15&deg;</span>
                                 </div>
                             </div>
-                            <div class="bg-[#1a1a2e] rounded-lg p-4 text-white text-center border border-[#3a3a52] hover:border-[#4657d9] transition-colors">
+                            <div
+                                class="bg-[#1a1a2e] rounded-lg p-4 text-white text-center border border-[#3a3a52] hover:border-[#4657d9] transition-colors">
                                 <p class="forecast-days text-sm opacity-90">Sun</p>
-                                <img src="src/assets/images/icon-overcast.webp" alt="overcast" class="w-10 h-10 mx-auto my-2">
+                                <img src="src/assets/images/icon-overcast.webp" alt="overcast"
+                                    class="w-10 h-10 mx-auto my-2">
                                 <div class="flex items-center justify-center">
                                     <p class="maxTemp text-xs opacity-80">25&deg;</p>
                                     <span class="ml-2 text-[13px] opacity-60">16&deg;</span>
                                 </div>
                             </div>
-                            <div class="bg-[#1a1a2e] rounded-lg p-4 text-white text-center border border-[#3a3a52] hover:border-[#4657d9] transition-colors">
+                            <div
+                                class="bg-[#1a1a2e] rounded-lg p-4 text-white text-center border border-[#3a3a52] hover:border-[#4657d9] transition-colors">
                                 <p class="forecast-days text-sm opacity-90">Mon</p>
                                 <img src="src/assets/images/icon-fog.webp" alt="fog" class="w-10 h-10 mx-auto my-2">
                                 <div class="flex items-center justify-center">
@@ -234,20 +277,23 @@
                     <div class="flex items-center justify-between mb-4">
                         <h3 class="font-semibold">Hourly forecast</h3>
                         <div class="relative">
-                            <button id="hourlyDateBtn" class="flex items-center gap-2 bg-[#1a1a2e] text-white px-3 py-1 rounded-lg text-sm hover:bg-[#252541] active:bg-[#16162a] transition-colors border border-[#3a3a52]">
+                            <button id="hourlyDateBtn"
+                                class="flex items-center gap-2 bg-[#1a1a2e] text-white px-3 py-1 rounded-lg text-sm hover:bg-[#252541] active:bg-[#16162a] transition-colors border border-[#3a3a52]">
                                 <span id="hourlyDate">Tuesday</span>
                                 <img src="src/assets/images/icon-dropdown.svg" class="w-4 h-4" alt="dropdown">
                             </button>
-                            
+
                             <!-- Day selection dropdown -->
-                            <div id="dayDropdown" class="hidden absolute right-0 mt-2 w-40 bg-[#1a1a2e] text-white rounded-lg shadow-xl py-2 z-50 border border-[#3a3a52]">
+                            <div id="dayDropdown"
+                                class="hidden absolute right-0 mt-2 w-40 bg-[#1a1a2e] text-white rounded-lg shadow-xl py-2 z-50 border border-[#3a3a52]">
                                 <!-- Days will be populated by JavaScript -->
                             </div>
                         </div>
                     </div>
 
                     <div class="space-y-3">
-                        <div class="flex items-center justify-between bg-[#252541] p-3 rounded-lg hover:bg-[#2e2f52] transition-colors border border-[#3a3a52]">
+                        <div
+                            class="flex items-center justify-between bg-[#252541] p-3 rounded-lg hover:bg-[#2e2f52] transition-colors border border-[#3a3a52]">
                             <div class="flex items-center gap-3">
                                 <img src="src/assets/images/icon-overcast.webp" class="hourlyIcons w-6 h-6" alt="cloud">
                                 <span class="hourlyTime">3 PM</span>
@@ -255,15 +301,18 @@
                             <span class="hourlyTemp">20&deg;</span>
                         </div>
 
-                        <div class="flex items-center justify-between bg-[#252541] p-3 rounded-lg hover:bg-[#2e2f52] transition-colors border border-[#3a3a52]">
+                        <div
+                            class="flex items-center justify-between bg-[#252541] p-3 rounded-lg hover:bg-[#2e2f52] transition-colors border border-[#3a3a52]">
                             <div class="flex items-center gap-3">
-                                <img src="src/assets/images/icon-partly-cloudy.webp" class="hourlyIcons w-6 h-6" alt="cloud">
+                                <img src="src/assets/images/icon-partly-cloudy.webp" class="hourlyIcons w-6 h-6"
+                                    alt="cloud">
                                 <span class="hourlyTime">4 PM</span>
                             </div>
                             <span class="hourlyTemp">20&deg;</span>
                         </div>
 
-                        <div class="flex items-center justify-between bg-[#252541] p-3 rounded-lg hover:bg-[#2e2f52] transition-colors border border-[#3a3a52]">
+                        <div
+                            class="flex items-center justify-between bg-[#252541] p-3 rounded-lg hover:bg-[#2e2f52] transition-colors border border-[#3a3a52]">
                             <div class="flex items-center gap-3">
                                 <img src="src/assets/images/icon-sunny.webp" class="hourlyIcons w-6 h-6" alt="sun">
                                 <span class="hourlyTime">5 PM</span>
@@ -271,7 +320,8 @@
                             <span class="hourlyTemp">20&deg;</span>
                         </div>
 
-                        <div class="flex items-center justify-between bg-[#252541] p-3 rounded-lg hover:bg-[#2e2f52] transition-colors border border-[#3a3a52]">
+                        <div
+                            class="flex items-center justify-between bg-[#252541] p-3 rounded-lg hover:bg-[#2e2f52] transition-colors border border-[#3a3a52]">
                             <div class="flex items-center gap-3">
                                 <img src="src/assets/images/icon-overcast.webp" class="hourlyIcons w-6 h-6" alt="cloud">
                                 <span class="hourlyTime">6 PM</span>
@@ -279,7 +329,8 @@
                             <span class="hourlyTemp">19&deg;</span>
                         </div>
 
-                        <div class="flex items-center justify-between bg-[#252541] p-3 rounded-lg hover:bg-[#2e2f52] transition-colors border border-[#3a3a52]">
+                        <div
+                            class="flex items-center justify-between bg-[#252541] p-3 rounded-lg hover:bg-[#2e2f52] transition-colors border border-[#3a3a52]">
                             <div class="flex items-center gap-3">
                                 <img src="src/assets/images/icon-rain.webp" class="hourlyIcons w-6 h-6\" alt="rain">
                                 <span class="hourlyTime">7 PM</span>
@@ -287,7 +338,8 @@
                             <span class="hourlyTemp">18&deg;</span>
                         </div>
 
-                        <div class="flex items-center justify-between bg-[#252541] p-3 rounded-lg hover:bg-[#2e2f52] transition-colors border border-[#3a3a52]">
+                        <div
+                            class="flex items-center justify-between bg-[#252541] p-3 rounded-lg hover:bg-[#2e2f52] transition-colors border border-[#3a3a52]">
                             <div class="flex items-center gap-3">
                                 <img src="src/assets/images/icon-fog.webp" class="hourlyIcons w-6 h-6" alt="fog">
                                 <span class="hourlyTime">8 PM</span>
@@ -295,7 +347,8 @@
                             <span class="hourlyTemp">18&deg;</span>
                         </div>
 
-                        <div class="flex items-center justify-between bg-[#252541] p-3 rounded-lg hover:bg-[#2e2f52] transition-colors border border-[#3a3a52]">
+                        <div
+                            class="flex items-center justify-between bg-[#252541] p-3 rounded-lg hover:bg-[#2e2f52] transition-colors border border-[#3a3a52]">
                             <div class="flex items-center gap-3">
                                 <img src="src/assets/images/icon-overcast.webp" class="hourlyIcons w-6 h-6" alt="cloud">
                                 <span class="hourlyTime">9 PM</span>
@@ -303,7 +356,8 @@
                             <span class="hourlyTemp">17&deg;</span>
                         </div>
 
-                        <div class="flex items-center justify-between bg-[#252541] p-3 rounded-lg hover:bg-[#2e2f52] transition-colors border border-[#3a3a52]">
+                        <div
+                            class="flex items-center justify-between bg-[#252541] p-3 rounded-lg hover:bg-[#2e2f52] transition-colors border border-[#3a3a52]">
                             <div class="flex items-center gap-3">
                                 <img src="src/assets/images/icon-overcast.webp" class="hourlyIcons w-6 h-6" alt="cloud">
                                 <span class="hourlyTime">10 PM</span>
