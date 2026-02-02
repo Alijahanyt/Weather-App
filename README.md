@@ -1,17 +1,41 @@
-# Frontend Mentor - Weather app solution
+# Weather Now 🌤️
 
-This is a solution to the [Weather app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/weather-app-K1FhddVm49). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+[![Frontend Mentor](https://img.shields.io/badge/Frontend%20Mentor-Weather%20App-blue)](https://www.frontendmentor.io/challenges/weather-app-K1FhddVm49) 
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML) 
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) 
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com) 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-View-blue)](https://alijahanyt.github.io/Weather-App/)
 
+---
 
 ## Demo
 
-https://alijahanyt.github.io/Weather-App/
+<p float="left">
+  <img src="https://github.com/Alijahanyt/Weather-App/blob/main/demo%20gif.gif" width="500" />
+</p>
 
-# Weather Now 🌤️
+Live demo: [https://alijahanyt.github.io/Weather-App/](https://alijahanyt.github.io/Weather-App/)
+
+---
+
+## Table of Contents
+- [About](#about)
+- [Features](#features)
+  - [Core Features](#-core-features)
+  - [UI/UX Features](#-uiux-features)
+  - [Technical Features](#-technical-features)
+- [Screenshots](#screenshots)
+- [Technologies Used](#technologies-used)
+- [Socials](#socials)
+- [Author](#author)
+
+---
+
+## About
 
 **Weather Now** is a modern, responsive web application that shows current weather conditions, daily forecasts, and hourly forecasts for any city worldwide. The app automatically detects the user's location based on their IP for first-time users and allows dynamic searching for other cities.  
 
-The app is built with **HTML, JavaScript, and Tailwind CSS**, with a focus on clean UI, accessibility, and real-time weather data fetched from **Open-Meteo API**.
+The app is built with **HTML, JavaScript, and Tailwind CSS**, with a focus on clean UI, accessibility, and real-time weather data fetched from the **Open-Meteo API**.
 
 ---
 
@@ -45,16 +69,42 @@ The app is built with **HTML, JavaScript, and Tailwind CSS**, with a focus on cl
 
 ---
 
-## 🌐 Socials:
-[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/alijahan.io) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ali-jahanyt/) [![email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:alijahanyt@gmail.com) 
-
 ## Screenshots
 
+<p float="left">
+  <img src="https://github.com/Alijahanyt/Weather-App/blob/main/src/assets/screenshots/Clipboarder.2026.02.02-002.png" width="300" />
+  <img src="https://github.com/Alijahanyt/Weather-App/blob/main/src/assets/screenshots/Clipboarder.2026.02.02-003.png" width="300" />
+  <img src="https://github.com/Alijahanyt/Weather-App/blob/main/src/assets/screenshots/Clipboarder.2026.02.02-004.png" width="300" />
+</p>
 
-![App Screenshots](https://github.com/Alijahanyt/Weather-App/blob/main/src/assets/screenshots/Clipboarder.2026.02.02-002.png)
+<p float="left">
+  <img src="https://github.com/Alijahanyt/Weather-App/blob/main/src/assets/screenshots/code.png" width="300" />
+</p>
 
-![App Screenshots](https://github.com/Alijahanyt/Weather-App/blob/main/src/assets/screenshots/Clipboarder.2026.02.02-003.png)
+---
 
-![App Screenshots](https://github.com/Alijahanyt/Weather-App/blob/main/src/assets/screenshots/Clipboarder.2026.02.02-004.png)
+## Technologies Used
+- **HTML5**
+- **JavaScript (ES6)**
+- **Tailwind CSS**
+- **Open-Meteo API** for weather data
+- **IP-based geolocation API** for default city detection
 
-![App Screenshots](https://github.com/Alijahanyt/Weather-App/blob/main/src/assets/screenshots/code.png)
+---
+
+## 🌐 Socials
+[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/alijahan.io) 
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ali-jahanyt/) 
+[![Email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:alijahanyt@gmail.com)
+[![GitHub](https://img.shields.io/badge/GitHub-%2312100E.svg?logo=github&logoColor=white)](https://github.com/Alijahanyt)
+
+---
+
+## Author
+[![Ali Jahanyt](https://avatars.githubusercontent.com/u/YOUR_GITHUB_ID?v=4)](https://github.com/Alijahanyt)
+
+Ali Jahanyt – [Portfolio](https://alijahan.io) – alijahanyt@gmail.com
+
+---
+
+✨ *Thank you for checking out Weather Now! Feel free to fork, star, and provide feedback.*
