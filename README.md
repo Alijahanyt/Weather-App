@@ -50,12 +50,11 @@ The app is built with **HTML, JavaScript, and Tailwind CSS**, with a focus on cl
 
 ## Screenshots
 
-*([Add screenshots here if desired, e.g., main dashboard, daily forecast, hourly forecast](https://github.com/Alijahanyt/Weather-App/blob/main/src/assets/screenshots/Clipboarder.2026.02.02-002.png))*
 
-*([Add screenshots here if desired, e.g., main dashboard, daily forecast, hourly forecast](https://github.com/Alijahanyt/Weather-App/blob/main/src/assets/screenshots/Clipboarder.2026.02.02-003.png))*
+![App Screenshots](https://github.com/Alijahanyt/Weather-App/blob/main/src/assets/screenshots/Clipboarder.2026.02.02-002.png)
 
-*([Add screenshots here if desired, e.g., main dashboard, daily forecast, hourly forecast](https://github.com/Alijahanyt/Weather-App/blob/main/src/assets/screenshots/Clipboarder.2026.02.02-004.png))*
+![App Screenshots](https://github.com/Alijahanyt/Weather-App/blob/main/src/assets/screenshots/Clipboarder.2026.02.02-003.png)
 
-*([Add screenshots here if desired, e.g., main dashboard, daily forecast, hourly forecast](https://github.com/Alijahanyt/Weather-App/blob/main/src/assets/screenshots/code.png))*
+![App Screenshots](https://github.com/Alijahanyt/Weather-App/blob/main/src/assets/screenshots/Clipboarder.2026.02.02-004.png)
 
----
+![App Screenshots](https://github.com/Alijahanyt/Weather-App/blob/main/src/assets/screenshots/code.png)
